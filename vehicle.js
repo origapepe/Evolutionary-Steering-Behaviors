@@ -144,34 +144,38 @@ Vehicle.prototype.behaviors = function(good, bad){
 	}
 };
 
-Vehicle.prototype.riproduce = function(boy, girl){
+Vehicle.prototype.reproduce = function(boy, girl){
 	var t, dna;
 	var child = null;
 	if(random(1) < 0.0005){
 		if(!this.reproducing){
 			var pType = swampType(this.type);
-
-			if(pType === 'f'){
-				if(girl.length >= 1){
-					var index = floor(random(girl.length));
-					this.partner = girl[index];
+			
+				if(pType === 'f'){
+					if(girl.length >= 1){
+						var index = floor(random(girl.length));
+						this.partner = girl[index];
+					}
+				}else{
+					if(boy.length >= 1){
+						var index = floor(random(boy.length));
+						this.partner = boy[index];
+					}
 				}
-			}else{
-				if(boy.length >= 1){
-					var index = floor(random(boy.length));
-					this.partner = boy[index];
+				if(this.partner !== null){
+					this.partner.partner = this;
 				}
-			}
-			if(this.partner !== null){
-				this.partner.partner = this;
-			}
-
-			this.reproducing = true;
-			this.partner.reproducing = true;
-
-			if(this.life > 0.75){//  3/4
-				dna = this.dna.crossover(this.partner.dna);
-				dna.mutate(0.01);
+			if(!this.partner.reproducing){
+			
+				this.reproducing = true;
+				this.partner.reproducing = true;
+			
+				if(this.life > 0.75){//  3/4
+					if(this.partner.life > 0.75){//  3/4
+						dna = this.dna.crossover(this.partner.dna);
+						dna.mutate(0.01);
+					}
+				}
 			}
 		}
 	}
