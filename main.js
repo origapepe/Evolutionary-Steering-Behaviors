@@ -51,7 +51,7 @@ function draw(){
 	for(var i = vehicles.length-1; i >= 0; i--){
 		var v = vehicles[i];
 		v.behaviors(food, poison);
-		v.riproduce(m,f);
+		v.reproduce(m,f);
 		v.run();
 
 		if(v.dead()){
@@ -93,6 +93,15 @@ function draw(){
 	if(poison.length < 120){
 		if(random(1) < 0.005){
 			poison.push(Vector.init(random(width),random(height)));
+		}
+	}
+
+	if(vehicles.length <= 0){
+		for(var i = 0; i < 70; i++){
+			var t = findType();
+			var v = new Vehicle(random(width), random(height),t);
+
+			add(v,t,m,f);
 		}
 	}
 
