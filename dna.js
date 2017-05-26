@@ -24,18 +24,18 @@ DNA.prototype.crossover = function(partner){
 		}
 	}
 
-	newdna[4] = floor(random(100000000));
+	newdna[4] = floor(random(-100000000,100000000));
 
 	return new DNA(newdna);
 };
 
 DNA.prototype.mutate = function(mRate){
 	for(var i = 0; i < this.genes.length-1; i++){
-		if(mid()){
+		if(random(1) < mRate){
 			if(i <= 1){
-				this.genes[i] = random(-5,5);
+				this.genes[i] += random(random(-0.4,-0.2),random(0.4,0.2));
 			}else{
-				this.genes[i] = random(5,100);
+				this.genes[i] += random(random(-10,-5),random(10,5));
 			}
 
 		}
