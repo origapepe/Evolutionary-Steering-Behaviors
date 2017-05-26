@@ -7,8 +7,8 @@ function DNA(genes){
 		this.genes[0] = random(-5,5);
 		this.genes[1] = random(-5,5);
 
-		this.genes[2] = random(3,50);
-		this.genes[3] = random(3,50);
+		this.genes[2] = random(3,70);
+		this.genes[3] = random(3,70);
 
 		this.genes[4] = floor(random(100000000));
 	}
