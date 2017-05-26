@@ -29,18 +29,18 @@ function setup(){
 	food = [];
 	poison = [];
 
-	for(var i = 0; i < 70; i++){
+	for(var i = 0; i < 50; i++){
 		var t = findType();
 		var v = new Vehicle(random(width), random(height),t);
 
 		add(v,t,m,f);
 	}
 
-	for(var i = 0; i < 260; i++){
+	for(var i = 0; i < 200; i++){
 		food.push(Vector.init(random(width), random(height)));
 	}
 
-	for(var i = 0; i < 120; i++){
+	for(var i = 0; i < 100; i++){
 		poison.push(Vector.init(random(width), random(height)));
 	}
 };
