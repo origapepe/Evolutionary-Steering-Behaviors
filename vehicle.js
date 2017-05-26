@@ -147,7 +147,7 @@ Vehicle.prototype.behaviors = function(good, bad){
 Vehicle.prototype.reproduce = function(boy, girl){
 	var t, dna;
 	var child = null;
-	if(random(1) < 0.0005){
+	if(random(1) < 0.0002){
 		if(!this.reproducing){
 			var pType = swampType(this.type);
 			
