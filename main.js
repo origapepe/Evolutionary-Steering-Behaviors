@@ -85,13 +85,13 @@ function draw(){
 	}
 
 	if(food.length < 260){
-		if(random(1) < 0.05){
+		if(random(1) < 0.08){
 			food.push(Vector.init(random(width),random(height)));
 		}
 	}
 
 	if(poison.length < 120){
-		if(random(1) < 0.005){
+		if(random(1) < 0.001){
 			poison.push(Vector.init(random(width),random(height)));
 		}
 	}
